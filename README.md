@@ -146,7 +146,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
                  <td>highlighter</td>
                  <td>function</td>
                  <td>highlights all default matches</td>
-                 <td>Method used to highlight autocomplete results. Accepts a single argument <code>item</code> and has the scope of the typeahead instance. Should return html.</td>
+                 <td>Method used to highlight autocomplete results. Accepts two arguments <code>text</code> and <code>item</code>. The text argument is the result of calling <code>displayText</code>. The method has the scope of the typeahead instance. Should return html.</td>
                </tr>
 			   <tr>
                  <td>displayText</td>
