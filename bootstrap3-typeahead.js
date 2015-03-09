@@ -56,6 +56,7 @@
     this.render = this.options.render || this.render;
     this.updater = this.options.updater || this.updater;
     this.displayText = this.options.displayText || this.displayText;
+    this.scrollMenu = this.options.scrollMenu || this.scrollMenu;
     this.source = this.options.source;
     this.delay = this.options.delay;
     this.$menu = $(this.options.menu);
@@ -109,6 +110,7 @@
         .show();
 
       this.shown = true;
+      this.scrollMenu(this.$menu.find('.active'), true);
       return this;
     },
 
@@ -242,6 +244,7 @@
       }
 
       next.addClass('active');
+      this.scrollMenu(next);
     },
 
     prev: function (event) {
@@ -253,6 +256,23 @@
       }
 
       prev.addClass('active');
+      this.scrollMenu(prev);
+    },
+
+    scrollMenu: function(active, scrollToTop) {
+      if (! active.length) return;
+
+      var padding = this.options.scrollPadding;
+      var activeTop = active.position().top - padding;
+      var activeBottom = activeTop + active.outerHeight() + ((padding + 1) * 2);
+      var menuScrollTop = this.$menu.scrollTop();
+      var menuHeight = this.$menu.outerHeight();
+
+      if (scrollToTop || activeTop < 0) {
+        this.$menu.scrollTop(menuScrollTop + activeTop);
+      } else if (menuHeight < activeBottom) {
+        this.$menu.scrollTop(menuScrollTop + (activeBottom - menuHeight));
+      }
     },
 
     listen: function () {
@@ -433,6 +453,7 @@
   , item: '<li><a href="#" role="option"></a></li>'
   , minLength: 1
   , scrollHeight: 0
+  , scrollPadding: 0
   , afterSelect: $.noop
   , addItem: false
   , delay: 0

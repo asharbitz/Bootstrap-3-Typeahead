@@ -166,6 +166,18 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
                  <td>$.noop()</td>
                  <td>Call back function to execute after selected an item. It gets the current active item in parameter if any.</td>
                </tr>
+               <tr>
+                 <td>scrollMenu</td>
+                 <td>function</td>
+                 <td>scrolls the menu</td>
+                 <td>This method scrolls the menu until the active item is fully visible. Called when navigating using the up and down arrows. Disable automatic scrolling with <code>scrollMenu: $.noop()</code>.</td>
+               </tr>
+               <tr>
+                 <td>scrollPadding</td>
+                 <td>number</td>
+                 <td>0</td>
+                 <td>Number of pixels between the active item and the menu top or bottom. Used when the menu automatically scrolls to the active item.</td>
+               </tr>
 			   <tr>
                  <td>delay</td>
                  <td>integer</td>
