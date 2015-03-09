@@ -68,8 +68,7 @@ You can add all the properties you wish on your objects, as long as you provide 
 
 	var $input = $('.typeahead');
 	$input.typeahead({source:[{id: "someId1", name: "Display name 1"},
-				{id: "someId2", name: "Display name 2"}],
-				autoSelect: true});
+				{id: "someId2", name: "Display name 2"}]});
 	$input.change(function() {
 		var current = $input.typeahead("getActive");
 		if (current) {
@@ -160,12 +159,6 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
                  <td>function</td>
                  <td>item.name || item</td>
                  <td>Method used to get textual representation of an item of the sources. Accepts a single argument <code>item</code> and has the scope of the typeahead instance. Should return a String.</td>
-               </tr>
-              <tr>
-                 <td>autoSelect</td>
-                 <td>boolean</td>
-                 <td>true</td>
-                 <td>Allows you to dictate whether or not the first suggestion is selected automatically. Turning autoselect off also means that the input won't clear if nothing is selected and <kbd>enter</kbd> or <kbd>tab</kbd> is hit.</td>
                </tr>
                <tr>
                  <td>afterSelect</td>
