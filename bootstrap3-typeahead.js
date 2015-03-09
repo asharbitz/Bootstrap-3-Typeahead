@@ -397,8 +397,28 @@
     },
 
     blur: function (e) {
+      this.syncInputWithActive();
       this.focused = false;
       if (!this.mousedover && this.shown) this.hide();
+    },
+
+    syncInputWithActive: function() {
+        var active = this.$element.data('active');
+        var activeText = active ? this.displayText(active) : '';
+        var inputText = this.$element.val();
+
+        if (activeText !== inputText) {
+          if (inputText) {
+            // reset the input (no item was selected)
+            this.$element
+              .val(activeText)
+              .change();
+          } else {
+            // clear the active item (the input text was deleted)
+            this.$element.data('active', null);
+            this.afterSelect(null);
+          }
+        }
     },
 
     click: function (e) {
