@@ -126,11 +126,11 @@
         this.query = this.$element.val() ||  '';
       }
 
-      if (this.query.length < this.options.minLength) {
-        return this.shown ? this.hide() : this;
-      }
-
       var worker = $.proxy(function() {
+
+        if (this.query.length < this.options.minLength) {
+          return this.shown ? this.hide() : this;
+        }
 
         if($.isFunction(this.source)) this.source(this.query, $.proxy(this.process, this));
         else if (this.source) {
