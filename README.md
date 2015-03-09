@@ -16,7 +16,7 @@ Download
  - Download the latest [bootstrap3-typeahead.js](https://github.com/bassjobsen/Bootstrap-3-Typeahead/blob/master/bootstrap3-typeahead.js) or [bootstrap3-typeahead.min.js](https://github.com/bassjobsen/Bootstrap-3-Typeahead/blob/master/bootstrap3-typeahead.min.js).
 
  - Include it in your source after jQuery and Bootstrap Javascript.
- 
+
 Full integration with Bootstrap 3 Typeahead
 -------------------------------------------
 Download the latest version of Boostrap from [Bootstrap](https://github.com/twbs/bootstrap/archive/master.zip). Copy `bootstrap3-typeahead.js` to the js/ folder. Edit `gruntfile.js` and add `bootstrap3-typeahead.js` to the plugins' list.
@@ -45,8 +45,8 @@ Call the typeahead manually with:
 
 	$('.typeahead').typeahead()
 
-Destroys previously initialized typeaheads. This entails reverting DOM modifications and removing event handlers:	
-	
+Destroys previously initialized typeaheads. This entails reverting DOM modifications and removing event handlers:
+
 	$('.typeahead').typeahead('destroy')
 
 Javascript Example
@@ -60,16 +60,16 @@ Loading a collection
 	},'json');
 	//example_collection.json
 	// ["item1","item2","item3"]
-	
+
 Using JSON objects instead of simple strings
 --------------------------------------------
 
 You can add all the properties you wish on your objects, as long as you provide a "name" attribute OR you provide your own displayText method. The other values are for you, to be able to match the selected item with something in your model.
-	
+
 	var $input = $('.typeahead');
-	$input.typeahead({source:[{id: "someId1", name: "Display name 1"}, 
-				{id: "someId2", name: "Display name 2"}], 
-				autoSelect: true}); 
+	$input.typeahead({source:[{id: "someId1", name: "Display name 1"},
+				{id: "someId2", name: "Display name 2"}],
+				autoSelect: true});
 	$input.change(function() {
 		var current = $input.typeahead("getActive");
 		if (current) {
@@ -77,15 +77,15 @@ You can add all the properties you wish on your objects, as long as you provide 
 			if (current.name == $input.val()) {
 				// This means the exact match is found. Use toLowerCase() if you want case insensitive match.
 			} else {
-				// This means it is only a partial match, you can either add a new item 
+				// This means it is only a partial match, you can either add a new item
 				// or take the active if you don't want new items
 			}
 		} else {
 			// Nothing is active so it is a new value (or maybe empty value)
 		}
 	});
-	
-	
+
+
 Options
 =======
 
@@ -211,7 +211,7 @@ To use with [Bower](http://bower.io/). Add to your bower.json file:
        }
 
 Bloodhound
-==========	
+==========
 [Bloodhound](https://github.com/twitter/typeahead.js/blob/master/doc/bloodhound.md) is the [typeahead.js](https://github.com/twitter/typeahead.js) suggestion engine, since version 0.10.0. Bloodhound is robust, flexible, and offers advanced functionalities such as prefetching, intelligent caching, fast lookups, and backfilling with remote data. To use Bloodhound with Bootstrap-3-Typeahead:
 
 	// instantiate the bloodhound suggestion engine
@@ -220,16 +220,16 @@ Bloodhound
 	queryTokenizer: Bloodhound.tokenizers.whitespace,
 	local:  ["(A)labama","Alaska","Arizona","Arkansas","Arkansas2","Barkansas"]
 	});
-	 
+
 	// initialize the bloodhound suggestion engine
 	numbers.initialize();
 
 	$('.typeahead').typeahead(
 	{
 	items: 4,
-	source:numbers.ttAdapter()	
+	source:numbers.ttAdapter()
 	});
-	
+
 
 Bootstrap Tags Input
 ====================
@@ -244,11 +244,11 @@ Bootstrap Tags Input
 or
 
     $('input').tagsinput({
-      typeahead: {                  
+      typeahead: {
         source: function(query) {
           return $.get('http://someservice.com');
         }
       }
     });
 
-See also: https://github.com/bassjobsen/Bootstrap-3-Typeahead/issues/40	
+See also: https://github.com/bassjobsen/Bootstrap-3-Typeahead/issues/40
