@@ -54,7 +54,6 @@
     this.select = this.options.select || this.select;
     this.highlighter = this.options.highlighter || this.highlighter;
     this.render = this.options.render || this.render;
-    this.updater = this.options.updater || this.updater;
     this.displayText = this.options.displayText || this.displayText;
     this.scrollMenu = this.options.scrollMenu || this.scrollMenu;
     this.source = this.options.source;
@@ -76,17 +75,12 @@
       var val = this.$menu.find('.active').data('value');
       this.$element.data('active', val);
       if(val) {
-        var newVal = this.updater(val);
         this.$element
-          .val(this.displayText(newVal) || newVal)
+          .val(this.displayText(val))
           .change();
-        this.afterSelect(newVal);
+        this.afterSelect(val);
       }
       return this.hide();
-    },
-
-    updater: function (item) {
-      return item;
     },
 
     setSource: function (source) {

@@ -143,12 +143,6 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
                  <td>Method used to sort autocomplete results. Accepts a single argument <code>items</code> and has the scope of the typeahead instance. Reference the current query with <code>this.query</code>.</td>
                </tr>
                <tr>
-                 <td>updater</td>
-                 <td>function</td>
-                 <td>returns selected item</td>
-                 <td>The method used to return selected item. Accepts a single argument, the <code>item</code> and has the scope of the typeahead instance.</td>
-               </tr>
-               <tr>
                  <td>highlighter</td>
                  <td>function</td>
                  <td>highlights all default matches</td>
