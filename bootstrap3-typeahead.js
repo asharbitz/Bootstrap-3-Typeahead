@@ -366,7 +366,6 @@
         case 13: // enter
           if (!this.shown) return;
           this.select();
-          if (this.focused) this.$element.blur();
           break;
 
         case 27: // escape
@@ -419,6 +418,7 @@
       e.stopPropagation();
       e.preventDefault();
       this.select();
+      this.$element.focus();
     },
 
     mouseenter: function (e) {
