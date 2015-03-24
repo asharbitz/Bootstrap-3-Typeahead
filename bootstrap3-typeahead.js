@@ -408,7 +408,9 @@
               .change();
           } else {
             // clear the active item (the input text was deleted)
-            this.$element.data('active', null);
+            this.$element
+              .data('active', null)
+              .change();
             this.afterSelect(null);
           }
         }
@@ -418,7 +420,6 @@
       e.stopPropagation();
       e.preventDefault();
       this.select();
-      this.$element.focus();
     },
 
     mouseenter: function (e) {
